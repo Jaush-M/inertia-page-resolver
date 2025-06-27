@@ -25,8 +25,8 @@
     "build:cjs": "swc src/index.ts -o dist/index.js -C module.type=commonjs",
     "build:esm": "swc src/index.ts -o dist/index.mjs -C module.type=es6",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
-    "build:plugin:cjs": "swc src/plugin.js -o dist/plugin.js -C module.type=commonjs",
-    "build:plugin:esm": "swc src/plugin.js -o dist/plugin.mjs -C module.type=es6",
+    "build:plugin:cjs": "swc src/plugin.ts -o dist/plugin.js -C module.type=commonjs",
+    "build:plugin:esm": "swc src/plugin.ts -o dist/plugin.mjs -C module.type=es6",
     "build:plugin": "pnpm build:plugin:cjs && pnpm build:plugin:esm",
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types && pnpm build:plugin"
   },
