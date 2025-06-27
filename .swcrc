@@ -1,0 +1,20 @@
+{
+    "$schema": "https://swc.rs/schema.json",
+    "jsc": {
+        "target": "es2020",
+        "parser": {
+            "syntax": "typescript"
+        },
+        "transform": {
+            "optimizer": {
+                "globals": {
+                    "typeofs": {
+                        "window": "object"
+                    }
+                }
+            }
+        }
+    },
+    "sourceMaps": true,
+    "minify": true
+}

@@ -1,0 +1,54 @@
+{
+  "name": "@mjxsn/inertia-page-resolver",
+  "version": "1.0.0",
+  "description": "Page resolver for inertia apps with domain support",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./plugin": {
+      "import": "./dist/plugin.mjs",
+      "require": "./dist/plugin.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:cjs": "swc src/index.ts -o dist/index.js -C module.type=commonjs",
+    "build:esm": "swc src/index.ts -o dist/index.mjs -C module.type=es6",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "build:plugin:cjs": "swc src/plugin.js -o dist/plugin.js -C module.type=commonjs",
+    "build:plugin:esm": "swc src/plugin.js -o dist/plugin.mjs -C module.type=es6",
+    "build:plugin": "pnpm build:plugin:cjs && pnpm build:plugin:esm",
+    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types && pnpm build:plugin"
+  },
+  "keywords": [
+    "page",
+    "resolver",
+    "page-resolver",
+    "laravel",
+    "inertia",
+    "inertia-page-resolver",
+    "react",
+    "vue",
+    "typescript"
+  ],
+  "author": "jaush-m",
+  "repository": "https://github.com/jaush-m/inertia-page-resolver",
+  "license": "MIT",
+  "dependencies": {
+    "@mjxsn/color-logger": "^1.0.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.4.16",
+    "typescript": "^5.4.5"
+  }
+}
