@@ -1,20 +1,20 @@
 {
   "name": "@mjxsn/inertia-page-resolver",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Page resolver for inertia apps with domain support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./vite-plugin": {
-      "import": "./dist/plugin.mjs",
-      "require": "./dist/plugin.js",
-      "types": "./dist/plugin.d.ts"
+      "import": "./dist/esm/plugin.mjs",
+      "require": "./dist/cjs/plugin.js",
+      "types": "./dist/types/plugin.d.ts"
     }
   },
   "files": [
@@ -22,13 +22,10 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "build:cjs": "swc src/index.ts -o dist/index.js -C module.type=commonjs",
-    "build:esm": "swc src/index.ts -o dist/index.mjs -C module.type=es6",
-    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
-    "build:plugin:cjs": "swc src/plugin.ts -o dist/plugin.js -C module.type=commonjs",
-    "build:plugin:esm": "swc src/plugin.ts -o dist/plugin.mjs -C module.type=es6",
-    "build:plugin": "pnpm build:plugin:cjs && pnpm build:plugin:esm",
-    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types && pnpm build:plugin"
+    "build:cjs": "swc src -d dist/cjs -C module.type=commonjs",
+    "build:esm": "swc src -d dist/esm -C module.type=es6",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/types",
+    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm build:types"
   },
   "keywords": [
     "page",
