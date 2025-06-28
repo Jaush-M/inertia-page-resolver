@@ -1,6 +1,18 @@
 import path from "node:path";
-import { debounce } from "./debounce";
 import type { ViteDevServer, Plugin } from "vite";
+
+function debounce<T extends (...args: any[]) => void>(
+	fn: T,
+	delay = 250
+): (...args: Parameters<T>) => void {
+	let timeoutId: NodeJS.Timeout;
+
+	return (...args: Parameters<T>): void => {
+		clearTimeout(timeoutId);
+		timeoutId = setTimeout(() => fn(...args), delay);
+	};
+}
+
 
 interface PageResolverPluginOptions {
 	pagesFolder?: string;
