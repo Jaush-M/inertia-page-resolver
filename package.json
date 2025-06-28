@@ -1,18 +1,18 @@
 {
   "name": "@mjxsn/inertia-page-resolver",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Page resolver for inertia apps with domain support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.mjs",
+      "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
       "types": "./dist/types/index.d.ts"
     },
     "./vite-plugin": {
-      "import": "./dist/esm/plugin.mjs",
+      "import": "./dist/esm/plugin.js",
       "require": "./dist/cjs/plugin.js",
       "types": "./dist/types/plugin.d.ts"
     }
