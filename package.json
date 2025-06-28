@@ -1,6 +1,6 @@
 {
   "name": "@mjxsn/inertia-page-resolver",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Page resolver for inertia apps with domain support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
